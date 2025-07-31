@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>A Letter for Nii 💌</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Georgia', serif;
+      background-color: #f8f1e4;
+      background-image: repeating-linear-gradient(45deg, transparent, transparent 80px,
+        rgba(255,255,255,0.3) 80px, rgba(255,255,255,0.3) 160px),
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160"><text x="10" y="40" font-size="32">🍰</text><text x="80" y="90" font-size="32">🍦</text><text x="20" y="130" font-size="32">🍵</text></svg>');
+      background-repeat: repeat;
+      background-size: 160px 160px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .envelope {
+      width: 160px;
+      cursor: pointer;
+      animation: wiggle 2s infinite ease-in-out;
+      transition: opacity 0.6s ease;
+      z-index: 10;
+    }
+#clickText {
+  position: absolute;
+  top: calc(50% + 100px); /* Adjust based on envelope position */
+  font-size: 1.2rem;
+  color: #b87d5c;
+  font-weight: bold;
+  animation: bounce 1.2s infinite;
+  z-index: 9;
+  font-family: 'Georgia', serif;
+  pointer-events: none;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+    @keyframes wiggle {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(-5deg); }
+      50% { transform: rotate(5deg); }
+      75% { transform: rotate(-3deg); }
+    }
+
+    .letter {
+      background: #fff9f0;
+      color: #5a4a3f;
+      padding: 3rem;
+      max-width: 720px;
+      border-radius: 12px;
+      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
+      border: 1px solid #e6ddcc;
+      line-height: 1.7;
+      display: none;
+      position: relative;
+      z-index: 2;
+      opacity: 0;
+      transform: scale(0.95);
+      transition: all 0.8s ease;
+    }
+
+    .letter.show {
+      display: block;
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .letter h1 {
+      font-family: 'Brush Script MT', cursive;
+      font-size: 2.2rem;
+      color: #b88b5c;
+      margin-bottom: 1rem;
+    }
+
+    .letter p {
+      margin-bottom: 1.3rem;
+      font-size: 1.1rem;
+    }
+
+    .signature {
+      margin-top: 2rem;
+      text-align: right;
+      font-family: 'Brush Script MT', cursive;
+      font-size: 1.6rem;
+      color: #a97458;
+    }
+
+    .photo {
+      position: absolute;
+      top: -60px;
+      left: -50px;
+      width: 120px;
+      border: 3px solid #f2d6c2;
+      border-radius: 8px;
+      transform: rotate(-5deg);
+      box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.15);
+      z-index: 3;
+    }
+
+    .hearts {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .heart-float {
+      position: absolute;
+      font-size: 1.4rem;
+      opacity: 0.7;
+      animation: floatUp 6s infinite ease-in;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(100%); opacity: 0; }
+      30% { opacity: 1; }
+      100% { transform: translateY(-100%); opacity: 0; }
+    }
+
+    .bear {
+      position: absolute;
+      bottom: 10px;
+      left: 20px;
+      width: 80px;
+      animation: wave 2s infinite ease-in-out;
+    }
+
+    @keyframes wave {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(5deg); }
+      50% { transform: rotate(0deg); }
+      75% { transform: rotate(-5deg); }
+    }
+
+    .flower {
+      position: absolute;
+      font-size: 24px;
+      opacity: 1;
+      animation: explode 0.9s forwards ease-out;
+      z-index: 5;
+    }
+
+    @keyframes explode {
+      to {
+        transform: translate(var(--x), var(--y));
+        opacity: 0;
+      }
+    }
+
+.falling-flowers .flower.fall {
+  position: fixed;
+  top: -50px;
+  font-size: 1.8rem;
+  z-index: 0;
+  opacity: 0.7;
+  animation: fall 10s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(110vh);
+    opacity: 0;
+  }
+}
+  </style>
+</head>
+<body>
+
+  <img id="envelope" class="envelope" src="https://i.postimg.cc/fTDLdmSV/envelope-email-kawaii-cartoon-cute-vector-illustration-graphic-design-142338413-1-removebg-preview.png" />
+	<div id="clickText">Click Mo ko Ganda hehe</div>
+
+  <div class="hearts">
+    <div class="heart-float" style="left: 10%; animation-delay: 0s;">💗</div>
+    <div class="heart-float" style="left: 30%; animation-delay: 2s;">💖</div>
+    <div class="heart-float" style="left: 50%; animation-delay: 4s;">💓</div>
+    <div class="heart-float" style="left: 70%; animation-delay: 1s;">💕</div>
+    <div class="heart-float" style="left: 90%; animation-delay: 3s;">💞</div>
+  </div>
+
+  <div id="letter" class="letter">
+    <img src="https://i.postimg.cc/SKLhGtMC/524110294-607373069097781-9166500998139769531-n.jpg" alt="Cute memory" class="photo">
+    <h1>Dear Niii 🌷🌷</h1>
+    <p>I hope na surprise kita with this little letter lng hahaha. Gusto lng kita pakiligin haha gumana ba? kaso di ko kita sadss.</p>
+    <p>It's been a while na din since last tayo nakapagbond tlga, ramdam ko na yung pagod mo sa mga org act hahaha. Just wanted to make small gift lng for you para ma-help bawasan pagod mo sana haha </p>
+    <p>Maybe a bit maikli lng but I hope na bina-basic mo nlng VP works haha. Even if I am trying to be less kulit din these days, I am cheering for u <333</p>
+    <p class="heart">You're Worth it, so keep goingg!! 💗🌷</p>
+    <div class="signature">
+      The Cute na guy,<br/>
+      Karl 🧸
+    </div>
+    <img src="https://i.postimg.cc/sgsxCS4Y/pngtree-choco-korean-bear-stickers-cute-style-with-love-png-image-4005679-removebg-preview.png" class="bear">
+  </div>
+
+<div class="falling-flowers">
+  <div class="flower fall" style="left: 5%;">🌸</div>
+  <div class="flower fall" style="left: 15%; animation-delay: 2s;">💐</div>
+  <div class="flower fall" style="left: 25%; animation-delay: 4s;">🌺</div>
+  <div class="flower fall" style="left: 75%; animation-delay: 1s;">🌸</div>
+  <div class="flower fall" style="left: 85%; animation-delay: 3s;">💮</div>
+  <div class="flower fall" style="left: 95%; animation-delay: 5s;">🪷</div>
+</div>
+
+  <script>
+    const envelope = document.getElementById('envelope');
+    const letter = document.getElementById('letter');
+
+    envelope.addEventListener('click', () => {
+      envelope.style.animation = 'none';
+      const rect = envelope.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+
+      for (let i = 0; i < 12; i++) {
+        const angle = (i / 12) * 2 * Math.PI;
+        const x = Math.cos(angle) * 120 + 'px';
+        const y = Math.sin(angle) * 120 + 'px';
+        const flower = document.createElement('div');
+        flower.className = 'flower';
+        flower.innerText = '🌸';
+        flower.style.left = cx + 'px';
+        flower.style.top = cy + 'px';
+        flower.style.setProperty('--x', x);
+        flower.style.setProperty('--y', y);
+        document.body.appendChild(flower);
+        setTimeout(() => flower.remove(), 1000);
+      }
+
+      envelope.style.opacity = '0';
+
+      setTimeout(() => {
+        envelope.style.display = 'none';
+        document.getElementById("clickText").style.display = "none";
+        letter.classList.add('show');
+      }, 700);
+    });
+  </script>
+</body>
+</html>
